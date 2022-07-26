@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  app:
+    image: backend:v1
+    volumes:
+      - .:/app
+    ports:
+      - "${PORT}:${PORT}"
+    restart: unless-stopped
+
+  client:
+    image: frontend:v1
+    volumes:
+      - ../frontend:/app
+    ports:
+      - "${PORT_CLIENT}:${PORT_CLIENT}"
