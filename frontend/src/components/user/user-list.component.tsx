@@ -170,7 +170,7 @@ export default class UserList extends Component<Props, State>{
                     ) : (
                         <div>
                             <br />
-                            <p>Please click on a Tutorial...</p>
+                            <p>Please click on a User...</p>
                         </div>
                     )}
                 </div>

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Main from './components/Main';
-import PersonAdd from './components/AccountAdd';
+import PersonAdd from './components/user/user-add.component';
 import PersonList from './components/user/user-list.component';
 
 
@@ -33,7 +33,7 @@ function App() {
         {/* <Router> */}
         <Routes>
           <Route path="/users" element={<PersonList />} />
-          <Route path="/person-add" element={<PersonAdd />} />
+          <Route path="/user/add" element={<PersonAdd />} />
           <Route path="/" element={<Main />} />
         </Routes>
         {/* </Router> */}
