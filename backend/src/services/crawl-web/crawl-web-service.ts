@@ -22,7 +22,7 @@ const cheerio = require("cheerio");
 
 // });
 
-async function crawlWebData(url: string): Promise<IGoldPnj[] | any> {
+async function crawlWebData(url: string, location: string, zone: string): Promise<IGoldPnj[] | any> {
     console.log("Crawler data excute....by url:", url);
     // make http call to url
     var response = null;
@@ -47,7 +47,7 @@ async function crawlWebData(url: string): Promise<IGoldPnj[] | any> {
             let priceSell = $(element).find('td:nth(2) > span').text();
             console.log("name:", name);
 
-            goldPnjList.push(goldPnj.new(name, priceBuy, priceSell));
+            goldPnjList.push(goldPnj.new(name, priceBuy, priceSell, location, zone));
             console.log("goldPnj:", goldPnj);
         });
 

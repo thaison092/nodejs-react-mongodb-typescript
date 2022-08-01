@@ -20,7 +20,9 @@ export const p = {
  */
  router.get(p.crawl, async (_: Request, res: Response) => {
     const url = "https://www.pnj.com.vn/blog/gia-vang/?zone=01";
-    const goldPnjs = await crawlWebService.crawlWebData(url);
+    const location = "hcm";
+    const zone = "01";
+    const goldPnjs = await crawlWebService.crawlWebData(url, location, zone);
     return res.status(OK).json({goldPnjs});
 });
 
