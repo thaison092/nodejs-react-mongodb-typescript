@@ -12,6 +12,8 @@ import apiRouter from './routes/api';
 import logger from 'jet-logger';
 import { CustomError } from '@shared/errors';
 
+var db = require('./config/database');
+
 
 // Constants
 const app = express();
@@ -24,6 +26,8 @@ const options: cors.CorsOptions = { origin: allowedOrigins };
  *                                  Middlewares
  **********************************************************************************/
 
+
+db();
 // Common middlewares
 // Then pass these options to cors:
 app.use(cors(options));

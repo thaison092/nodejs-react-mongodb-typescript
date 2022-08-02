@@ -1,6 +1,7 @@
 import goldPnj, { IGoldPnj } from "@models/gold-pnj-model";
 import { CrawlWebCatchError, CrawlWebFetchError } from "@shared/errors-crawl-web";
 import axios from "axios";
+import Moment from "moment";
 const cheerio = require("cheerio");
 
 // crawlWebData(url).then((resp) => {
@@ -27,6 +28,7 @@ async function crawlWebData(url: string, location: string, zone: string): Promis
     // make http call to url
     var response = null;
     var goldPnjList: IGoldPnj[] = [];
+    const todayDate = Moment().format('DDMMYYYY');
 
     try {
         response = await axios(url);
@@ -47,7 +49,7 @@ async function crawlWebData(url: string, location: string, zone: string): Promis
             let priceSell = $(element).find('td:nth(2) > span').text();
             console.log("name:", name);
 
-            goldPnjList.push(goldPnj.new(name, priceBuy, priceSell, location, zone));
+            goldPnjList.push(goldPnj.new(todayDate, name, priceBuy, priceSell, location, zone));
             console.log("goldPnj:", goldPnj);
         });
 
