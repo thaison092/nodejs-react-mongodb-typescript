@@ -1,4 +1,4 @@
-import { Schema, model, connect } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 // 1. Create an interface representing a documun in MongoDb
 export interface IGoldPnj {
     id: string;
@@ -20,7 +20,7 @@ const goldPnjSchema = new Schema<IGoldPnj>({
 });
 
 // 3. Create a model
-const GoldPnj = model<IGoldPnj>('GoldPnj', goldPnjSchema);
+const GoldPnjEntity = model<IGoldPnj>('gold_pnj', goldPnjSchema);
 
 /**
  * Get a new gold pnj object.
@@ -42,5 +42,6 @@ function getNew(id: string, goldType: string, priceBuy: string, priceSell: strin
 // Export default
 export default {
     new: getNew,
-    GoldPnj,
+    GoldPnjEntity,
+    goldPnjSchema,
 }

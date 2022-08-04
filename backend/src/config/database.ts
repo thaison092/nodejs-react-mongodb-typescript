@@ -1,5 +1,6 @@
 // config/database.js
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
+import mongoose from "mongoose";
 // mongoose.set("useCreateIndex", true);
 var chalk = require("chalk");
 var dbURL = require("./properties").DB;

@@ -27,7 +27,7 @@ const options: cors.CorsOptions = { origin: allowedOrigins };
  **********************************************************************************/
 
 
-db();
+// db();
 // Common middlewares
 // Then pass these options to cors:
 app.use(cors(options));
