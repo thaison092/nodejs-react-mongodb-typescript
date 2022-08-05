@@ -1,7 +1,7 @@
 import { Schema, model, Document } from "mongoose";
 // 1. Create an interface representing a documun in MongoDb
 export interface IGoldPnj {
-    id: string;
+    date: string;
     goldType: string;
     priceBuy: string;
     priceSell: string;
@@ -11,7 +11,7 @@ export interface IGoldPnj {
 
 // 2. Create schema corresponding to the document interface
 const goldPnjSchema = new Schema<IGoldPnj>({
-    id: { type: String, required: true },
+    date: { type: String, required: true },
     goldType: { type: String, required: true },
     priceBuy: { type: String, required: true },
     priceSell: { type: String, required: true },
@@ -27,10 +27,10 @@ const GoldPnjEntity = model<IGoldPnj>('gold_pnj', goldPnjSchema, 'gold_pnj')
  * 
  * @returns 
  */
-function getNew(id: string, goldType: string, priceBuy: string, priceSell: string
+function getNew(date: string, goldType: string, priceBuy: string, priceSell: string
     , location: string, zone: string): IGoldPnj {
     return {
-        id,
+        date,
         goldType,
         priceBuy,
         priceSell,

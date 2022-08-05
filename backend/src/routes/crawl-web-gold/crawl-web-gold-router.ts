@@ -22,8 +22,8 @@ export const p = {
     const url = "https://www.pnj.com.vn/blog/gia-vang/?zone=01";
     const location = "hcm";
     const zone = "01";
-    const goldPnjs = await crawlWebService.crawlWebData(url, location, zone);
-    return res.status(OK).json({goldPnjs});
+    return await crawlWebService.crawlWebData(url, location, zone, res);
+    // return res.status(OK).json({goldPnjs});
 });
 
 // Export default
