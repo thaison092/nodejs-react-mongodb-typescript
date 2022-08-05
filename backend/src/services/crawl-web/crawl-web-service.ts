@@ -85,11 +85,6 @@ async function crawlWebData(url: string, location: string, zone: string, resp: R
         console.log(error);
         throw new CrawlWebCatchError();
     }
-
-    return resp.status(BAD_REQUEST).json({
-        success: false,
-        message: 'Multiple documents insert to Collection failure',
-    });
 }
 
 // Export default
