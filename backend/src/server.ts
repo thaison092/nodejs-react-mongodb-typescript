@@ -11,23 +11,22 @@ import 'express-async-errors';
 import apiRouter from './routes/api';
 import logger from 'jet-logger';
 import { CustomError } from '@shared/errors';
-
-var db = require('./config/database');
-
+import authenAuthorConfig from './config/authen-author.config';
+import dbConnect from './controllers/db/database-connect';
 
 // Constants
 const app = express();
 // Add a list of allowed origins.
 // If you have more origins you would like to add, you can add them to the array below.
-const allowedOrigins = ['http://localhost:4000'];
+const allowedOrigins = authenAuthorConfig.CORS.split(' ');
 const options: cors.CorsOptions = { origin: allowedOrigins };
 
 /***********************************************************************************
  *                                  Middlewares
  **********************************************************************************/
 
-
-// db();
+// init connection
+dbConnect.connect();
 // Common middlewares
 // Then pass these options to cors:
 app.use(cors(options));
@@ -79,7 +78,6 @@ app.use(express.static(staticDir));
 app.get('*', (_: Request, res: Response) => {
     res.sendFile('index.html', { root: viewsDir });
 });
-
 
 
 // Export here and start in a diff file (for testing).

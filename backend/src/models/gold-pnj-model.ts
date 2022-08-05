@@ -20,7 +20,7 @@ const goldPnjSchema = new Schema<IGoldPnj>({
 });
 
 // 3. Create a model
-const GoldPnjEntity = model<IGoldPnj>('gold_pnj', goldPnjSchema);
+const GoldPnjEntity = model<IGoldPnj>('gold_pnj', goldPnjSchema, 'gold_pnj')
 
 /**
  * Get a new gold pnj object.
@@ -43,5 +43,5 @@ function getNew(id: string, goldType: string, priceBuy: string, priceSell: strin
 export default {
     new: getNew,
     GoldPnjEntity,
-    goldPnjSchema,
+    // goldPnjSchema,
 }

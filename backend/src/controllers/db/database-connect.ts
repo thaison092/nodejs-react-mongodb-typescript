@@ -1,18 +1,18 @@
 // config/database.js
 // var mongoose = require("mongoose");
 import mongoose from "mongoose";
+import databaseConfig from "src/config/database.config";
 // mongoose.set("useCreateIndex", true);
 var chalk = require("chalk");
-var dbURL = require("./properties").DB;
 var connected = chalk.bold.cyan;
 var error = chalk.bold.yellow;
 var disconnected = chalk.bold.red;
 var termination = chalk.bold.magenta;
 
-module.exports = function () {
-  mongoose.connect(dbURL);
+function connect() {
+  mongoose.connect(databaseConfig.DB_Url);
   mongoose.connection.on("connected", function () {
-    console.log(connected("Mongoose default connection is open to ", dbURL));
+    console.log(connected("Mongoose default connection is open to ", databaseConfig.DB_Url));
     console.log("Server Db Connected.!!!");
   });
 
@@ -38,3 +38,8 @@ module.exports = function () {
   });
 
 };
+
+// Export default
+export default {
+  connect,
+} as const;
