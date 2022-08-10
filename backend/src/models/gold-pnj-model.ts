@@ -43,5 +43,5 @@ function getNew(date: string, goldType: string, priceBuy: string, priceSell: str
 export default {
     new: getNew,
     GoldPnjEntity,
-    // goldPnjSchema,
+    // GoldPnjSchema,
 }

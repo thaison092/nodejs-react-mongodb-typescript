@@ -64,7 +64,7 @@ async function crawlWebData(url: string, location: string, zone: string, resp: R
             // });
         });
         // save to mongodb
-        goldPnj.GoldPnjEntity.collection.insertMany(goldPnjList,
+        goldPnj.GoldPnjEntity.collection.insertMany(goldPnjList, {ordered: false},
             function (err, docs) {
                 if (err) {
                     console.error("Has Error:", err);
